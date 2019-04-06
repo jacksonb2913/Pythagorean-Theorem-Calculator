@@ -1,0 +1,103 @@
+<head>
+input{
+  width:4rem;
+  height:2rem;
+  border-color:black;
+  border-radius:30px;
+}
+label{
+  font-size:24px;
+}
+#answer{
+}
+html{
+  background-color:GoldenRod;
+}
+button{
+  background-color:transparent;
+  border-color:black;
+  border-width:1px;
+  border-radius:30px;
+  height:2rem;
+  font-size:20px;
+}
+footer{
+  font-size:20px;
+}
+</head>
+<center>
+<h1>Pythagorean Theorem</h1>
+
+<label>A= </label><input type = 'number' min = '0' id="a"></input>
+<label>B= </label><input type = 'number' id="b"></input>
+<label>C= </label><input type = 'number' id="c"></input>
+<button class = "btn" onclick = "blank()">Calculate </button>
+<h2 id ="answer"></h2>
+</center>
+<script>
+document.getElementById('a').onkeydown = function(e){
+   if(e.keyCode == 13){
+    blank()
+   }
+};
+
+document.getElementById('b').onkeydown = function(e){
+   if(e.keyCode == 13){
+    blank()
+   }
+};
+
+document.getElementById('c').onkeydown = function(e){
+   if(e.keyCode == 13){
+    blank()
+   }
+};
+
+function blank(){
+  
+
+if(document.getElementById("a").value === ""){
+  findA();
+} else if (document.getElementById("b").value === "") {
+  findB();
+} else if (document.getElementById("c").value === "") {
+  findC();
+  } else {
+    alert('Please Check Values')
+  } 
+}
+
+
+function findA(){
+  if (document.getElementById("c").value === document.getElementById("b").value || document.getElementById("c").value < document.getElementById("b").value){
+       document.getElementById("answer").innerHTML = "C is greater than B."
+
+  } else{
+  var a = document.getElementById("c").value * document.getElementById("c").value - document.getElementById("b").value *document.getElementById("b").value
+  var a = Math.sqrt(a);
+   document.getElementById("answer").innerHTML = "A is equal to " + a
+  }
+}
+
+
+
+
+function findB(){
+  if (document.getElementById("c").value === document.getElementById("a").value || document.getElementById("c").value < document.getElementById("a").value){
+       document.getElementById("answer").innerHTML = "C is greater than A."
+
+  } else{
+  var b = document.getElementById("c").value * document.getElementById("c").value - document.getElementById("a").value *document.getElementById("a").value
+  var b = Math.sqrt(b);
+   document.getElementById("answer").innerHTML = "B is equal to " + b
+  }
+}
+
+
+
+function findC(){
+ var c = document.getElementById("a").value * document.getElementById("a").value +document.getElementById("b").value *document.getElementById("b").value;
+ var c = Math.sqrt(c);
+ document.getElementById("answer").innerHTML = "C is equal to " +c
+}
+</script>
